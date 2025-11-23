@@ -57,7 +57,7 @@ const pacman = {
     y: 23,
     direction: 0, // 0=droite, 1=bas, 2=gauche, 3=haut
     nextDirection: 0,
-    speed: 0.15,
+    speed: 0.05, // Ralenti pour correspondre à l'Atari 2600
     mouthOpen: 0,
     pixelX: 14 * TILE_SIZE,
     pixelY: 23 * TILE_SIZE
@@ -229,8 +229,8 @@ function updatePacman() {
         winGame();
     }
 
-    // Animation bouche
-    pacman.mouthOpen = (pacman.mouthOpen + 0.15) % Math.PI;
+    // Animation bouche - ralentie pour correspondre à la vitesse
+    pacman.mouthOpen = (pacman.mouthOpen + 0.08) % Math.PI;
 
     pacman.pixelX = pacman.x * TILE_SIZE;
     pacman.pixelY = pacman.y * TILE_SIZE;
@@ -286,8 +286,8 @@ function updateGhosts() {
             // Ne pas faire demi-tour
             if ((ghost.direction + 2) % 4 === dir) continue;
 
-            const testX = ghost.x + [0.3, 0, -0.3, 0][dir];
-            const testY = ghost.y + [0, 0.3, 0, -0.3][dir];
+            const testX = ghost.x + [0.1, 0, -0.1, 0][dir];
+            const testY = ghost.y + [0, 0.1, 0, -0.1][dir];
 
             if (canMove(testX, testY)) {
                 const dist = Math.sqrt(Math.pow(testX - targetX, 2) + Math.pow(testY - targetY, 2));
@@ -300,10 +300,10 @@ function updateGhosts() {
 
         ghost.direction = bestDir;
 
-        // Déplacer le fantôme
-        const speed = powerUpActive ? 0.08 : 0.12;
-        ghost.x += [0.12, 0, -0.12, 0][ghost.direction];
-        ghost.y += [0, 0.12, 0, -0.12][ghost.direction];
+        // Déplacer le fantôme - vitesse ralentie style Atari 2600
+        const speed = powerUpActive ? 0.025 : 0.04;
+        ghost.x += [speed, 0, -speed, 0][ghost.direction];
+        ghost.y += [0, speed, 0, -speed][ghost.direction];
 
         // Téléportation
         if (ghost.x < 0) ghost.x = GRID_WIDTH - 1;

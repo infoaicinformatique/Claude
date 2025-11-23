@@ -79,10 +79,11 @@ Chaque fantôme a sa propre personnalité :
 - Canvas : 560 x 620 pixels
 
 ### Gameplay
-- Vitesse Pac-Man : 0.15 unités/frame
-- Vitesse fantômes normale : 0.12 unités/frame
-- Vitesse fantômes en fuite : 0.08 unités/frame
+- Vitesse Pac-Man : 0.05 unités/frame (ralenti style Atari 2600)
+- Vitesse fantômes normale : 0.04 unités/frame
+- Vitesse fantômes en fuite : 0.025 unités/frame
 - Durée power-up : ~6 secondes
+- Vitesse calibrée pour reproduire le gameplay de l'Atari 2600
 
 ### IA des Fantômes
 - **Mode Chase** : Poursuivre Pac-Man
