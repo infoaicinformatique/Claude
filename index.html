@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAC-MAN - Atari 2600 Style</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>PAC-MAN</h1>
+            <p class="subtitle">ATARI 2600 STYLE</p>
+        </header>
+
+        <div class="game-wrapper">
+            <div class="score-panel">
+                <div class="score-item">
+                    <span class="label">SCORE</span>
+                    <span class="value" id="score">0</span>
+                </div>
+                <div class="score-item">
+                    <span class="label">HI-SCORE</span>
+                    <span class="value" id="hiScore">0</span>
+                </div>
+                <div class="score-item">
+                    <span class="label">VIES</span>
+                    <span class="value" id="lives">3</span>
+                </div>
+            </div>
+
+            <canvas id="gameCanvas" width="560" height="620"></canvas>
+
+            <div class="controls-info">
+                <h3>CONTRÔLES</h3>
+                <div class="controls-grid">
+                    <div>↑ Haut</div>
+                    <div>↓ Bas</div>
+                    <div>← Gauche</div>
+                    <div>→ Droite</div>
+                </div>
+                <button id="startBtn" class="start-btn">DÉMARRER</button>
+                <button id="pauseBtn" class="pause-btn">PAUSE</button>
+            </div>
+        </div>
+
+        <div class="game-status" id="gameStatus"></div>
+
+        <div class="instructions">
+            <h3>COMMENT JOUER</h3>
+            <ul>
+                <li>Mangez tous les points pour gagner</li>
+                <li>Évitez les fantômes</li>
+                <li>Mangez les super-points pour manger les fantômes</li>
+                <li>Chaque fantôme a sa propre stratégie !</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
